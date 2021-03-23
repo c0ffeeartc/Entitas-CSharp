@@ -80,6 +80,7 @@
     <Compile Include="Entitas.VisualDebugging.Unity.Editor\Entity\TypeDrawer\Vector2TypeDrawer.cs" />
     <Compile Include="Entitas.VisualDebugging.Unity.Editor\Entity\TypeDrawer\Vector3TypeDrawer.cs" />
     <Compile Include="Entitas.VisualDebugging.Unity.Editor\Entity\TypeDrawer\Vector4TypeDrawer.cs" />
+    <Compile Include="Entitas.VisualDebugging.Unity.Editor\IoC\VdHub.cs" />
     <Compile Include="Entitas.VisualDebugging.Unity.Editor\VisualDebuggingConfig.cs" />
     <Compile Include="Entitas.VisualDebugging.Unity.Editor\VisualDebuggingEntitasExtension.cs" />
     <Compile Include="Entitas.VisualDebugging.Unity.Editor\VisualDebuggingPreferencesDrawer.cs" />

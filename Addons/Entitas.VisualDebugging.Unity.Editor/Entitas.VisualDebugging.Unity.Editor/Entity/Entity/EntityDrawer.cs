@@ -22,7 +22,7 @@ namespace Entitas.VisualDebugging.Unity.Editor
 
             GUI.backgroundColor = bgColor;
 
-            DrawComponents(entity);
+            VdHub.I.EntityDrawComponents.Invoke(entity);
 
             EditorGUILayout.Space();
 
@@ -155,16 +155,21 @@ namespace Entitas.VisualDebugging.Unity.Editor
                 var components = entity.GetComponents();
                 for (int i = 0; i < components.Length; i++)
                 {
-                    DrawComponent(unfoldedComponents, componentMemberSearch, entity, indices[i], components[i]);
+                    VdHub.I.EntityDrawComponent.Invoke(unfoldedComponents, componentMemberSearch, entity, indices[i], components[i]);
                 }
             }
             EditorLayout.EndVerticalBox();
         }
 
+        public static string BuildComponentNameDefault(IComponent component)
+        {
+            return component.GetType().Name.RemoveComponentSuffix();
+        }
+
         public static void DrawComponent(bool[] unfoldedComponents, string[] componentMemberSearch, IEntity entity, int index, IComponent component)
         {
             var componentType = component.GetType();
-            var componentName = componentType.Name.RemoveComponentSuffix();
+            var componentName = VdHub.I.BuildComponentName.Invoke(component);
             if (EditorLayout.MatchesSearchString(componentName.ToLower(), componentNameSearchString.ToLower()))
             {
                 var boxStyle = getColoredBoxStyle(entity, index);
