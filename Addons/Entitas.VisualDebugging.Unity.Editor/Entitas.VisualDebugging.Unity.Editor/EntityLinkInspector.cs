@@ -27,6 +27,10 @@ namespace Entitas.VisualDebugging.Unity.Editor {
                         .Single(e => e.entity == link.entity).gameObject;
                 }
 
+                if (GUILayout.Button("Inspect entity")) {
+                    VisualDebugWindow.Open(link.entity);
+                }
+
                 EditorGUILayout.Space();
 
                 EntityDrawer.DrawEntity(link.entity);
